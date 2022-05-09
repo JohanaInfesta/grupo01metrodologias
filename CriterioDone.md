@@ -1,5 +1,5 @@
-##Criterio de DONE
-##nombres representativos para variables y funciones
+##Criterio de DONE /br
+1.nombres representativos para variables y funciones
 ##Casos de Testing
         Revisado por un compañero
         Dejar evidencia en el comentario de la respectiva tarea de jira con captura de pantalla de este
