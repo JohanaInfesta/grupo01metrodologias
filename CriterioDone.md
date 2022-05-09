@@ -1,6 +1,6 @@
 # Criterio de DONE  
 nombres representativos para variables y funciones  
-## Casos de Testing  
+Casos de Testing  
           Revisado por un compañero    
           Dejar evidencia en el comentario de la respectiva tarea de jira con captura de pantalla de este    
     Explicar brevemente (no más de 3 renglones)  el funcionamiento de los métodos  
