@@ -1,6 +1,6 @@
 <?php
 
-//require_once 'controller/controller.php';
+require_once 'controller/controller.php';
 require_once 'RouterClass.php';
 
 // CONSTANTES PARA RUTEO
@@ -20,7 +20,7 @@ $r = new Router();
 
 
 // rutas
-//$r->addRoute("home", "GET", "controller", "home");
+//$r->addRoute("home", "GET", "controller", "Home");
 
 
 
@@ -36,7 +36,7 @@ $r = new Router();
 // $r->addRoute("register", "POST", "LoginController", "Register");
 
 //Ruta por defecto.
-//$r->setDefaultRoute("MaterialController", "home");
+$r->setDefaultRoute("controller", "Home");
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
