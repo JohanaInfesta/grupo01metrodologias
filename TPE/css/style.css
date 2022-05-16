@@ -1,0 +1,13 @@
+.navbar-light{
+    background-color: #869EDD!important;
+}
+.navbar-brand{
+    font-family: cursive !important;
+    font-size: 200% !important; 
+}
+.nav-link{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+    font-size: 1.50rem !important;
+    color: rgb(255, 255, 255) !important;
+}
+
