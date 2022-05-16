@@ -10,4 +10,6 @@
     font-size: 1.50rem !important;
     color: rgb(255, 255, 255) !important;
 }
-
+ul.navbar-nav.ms-auto.mb-2.mb-lg-0 {
+    margin-left: 80% !important;
+}
