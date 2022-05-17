@@ -9,6 +9,6 @@ class View{
     function ShowHome(){
         $smarty = new Smarty();
         $smarty->assign('Titulo', 'Grupo 1 Metodologias');
-        $smarty->display('templates/header.tpl');
+        $smarty->display('templates/main.tpl');
     }
 }
