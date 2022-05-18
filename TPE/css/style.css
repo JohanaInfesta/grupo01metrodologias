@@ -50,18 +50,36 @@
 }
 
 
-
+.calendar{
+    padding-top: 3%;
+}
 .week{
     display: flex;
     justify-content: space-around;
+    margin-top: 2%;
   }
   .dates{
       display: grid;
       grid-template-columns: repeat(7, 1fr);
+      margin-top: 2%;
   }
 
 .btnDay{
     width: 100%;
+    background-color: #ffffff;
+    height: 50px;
+    border: 0.5px solid rgb(155, 153, 153);
+}
+.btnDisabled{
+    width: 100%;
+    opacity: 45%;
+    height: 50px;
+}
+.not-allowed{
+    cursor: not-allowed !important;
+}
+.btnDay:hover{
+    background-color: #869EDD;
 }
 h1{
     text-align: center;
@@ -87,4 +105,60 @@ h1{
     width: 20px;
     background: green;
     border-radius: 50%;
+}
+
+.dsplNone{
+    display: none;
+}
+.horarios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modalHorarios{
+    position: absolute;
+    background: #ffffff;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 90px;
+    top: 0;
+    width: 350px;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.modalHorarios h3{
+    text-align: center;
+    padding: 15px;
+}
+.btnSalir{
+    display: flex;
+    justify-content: center;
+}
+.btnSalir button{
+    background-color: #869EDD;
+    border-radius: 5px;
+    width: 90px;
+}
+
+.opacity{
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    background-color: black;
+    opacity: 40%;
+}
+
+.btnHorario{
+    width: 120px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 0.5px solid rgba(0, 0, 0, 0.356);
+}
+.btnHorario:hover{
+    background-color: rgb(174, 243, 174);
+
+
 }
