@@ -2,48 +2,76 @@ let date = new Date();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
 
-writeCalendar();
 
-let horarios = {
+var horarios = {
     'Domingo': [],
-    'Lunes': ['8', '8:30','9'],
+    'Lunes': ['8', '8:30','9', '9:30','10','10:30','11','11:30' ],
     'Martes': ['8', '8:30','9'], 
     'Miercoles': ['8', '8:30','9'],
     'Jueves': ['8', '8:30','9'],
     'Viernes': ['8', '8:30','9'],
     'Sabado': [],
 }
+
+
+writeCalendar();
+
+
 function writeCalendar(){
     let dates = document.getElementById('dates');
     for (let i = 1; i <= getTotalDayOfMonth(); i++) {
-        dates.innerHTML += `<div><button id="btn-date" class=" btnDay" onclick="daySelect(${i})">${i}</button><div>` 
+        let day = daySelect(i);
+        console.log(day);
+        if(day.length > 0){
+            dates.innerHTML += `<div><button id="btn-date" class=" btnDay" onclick="setValueHours(${i})">${i}</button></div>` 
+            
+        }else{
+            dates.innerHTML += `<div><button class="btnDisabled not-allowed" disabled">${i}</button></div>` 
+        }
     }
+}
+let modal = document.getElementById('modal');
+let divHorarios = document.getElementById('horarios');
+let divOpacity = document.getElementById('divOpacity');
+
+let btnCloseModal = document.getElementById('closeModal');
+btnCloseModal.addEventListener('click', closeModal);
+
+function closeModal(){
+    modal.classList.add('dsplNone');
+    divHorarios.innerHTML = '';
+    divHorarios.classList.remove('horarios');
+    divOpacity.classList.remove('opacity');
+} 
+function setValueHours(n){
+    let horario = daySelect(n);
+    modal.classList.remove('dsplNone');
+    for (let i = 0; i < horario.length; i++) {
+        divHorarios.innerHTML += `<button class="btnHorario">${horario[i]}</button>`;
+    }
+    divHorarios.classList.add('horarios');
+    divOpacity.classList.add('opacity');
 }
 function daySelect(n){
     let aux = getNameByDay(n);
     switch (aux) {
         case 'Lunes':
-            alert(horarios.Lunes)
-            break;
+            return horarios.Lunes;
         case 'Martes':
-            alert(horarios.Martes)
-            break;
+            return horarios.Martes;
         case 'Miercoles':
-            alert(horarios.Miercoles)
-            break;
+            return horarios.Miercoles;
         case 'Jueves':
-            alert(horarios.Jueves)
-            break;
+            return horarios.Jueves;
         case 'Viernes':
-            alert(horarios.Viernes)
-            break;
+            return horarios.Viernes;
         case 'Sabado':
-            alert(horarios.Sabado)
-        break;    
+            return horarios.Sabado;
+        case 'Domingo':
+            return horarios.Domingo;
         default:
             break;
     }
-    console.log(n+" dia ", aux+" dia semana");
 }
 function startDayWeek(){
     const startDay = new Date(year, month - 1, 1).getDay();
