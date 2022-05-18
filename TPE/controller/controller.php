@@ -16,4 +16,8 @@ class controller{
     function Calendario(){
         $this->view->ShowCalendar();
     }
+
+    function Medicos() {
+        $this->view->ShowMedicos();
+    }
 }
