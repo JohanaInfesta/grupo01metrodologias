@@ -12,4 +12,8 @@ class controller{
     function Home(){
         $this->view->ShowHome();
     }
+
+    function Calendario(){
+        $this->view->ShowCalendar();
+    }
 }

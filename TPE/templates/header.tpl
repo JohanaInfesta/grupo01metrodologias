@@ -26,7 +26,7 @@
                         <a class="nav-link active" aria-current="page" href="home">Home</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="turnos">Turnos</a>
+                        <a class="nav-link" href="calendarioDeTurnos">Turnos</a>
                         </li>
                     </ul>
                 </div>

@@ -11,4 +11,10 @@ class View{
         $smarty->assign('Titulo', 'Grupo 1 Metodologias');
         $smarty->display('templates/main.tpl');
     }
+
+    function ShowCalendar(){
+        $smarty = new Smarty();
+        $smarty->assign('Calendario', 'Grupo 1 Metodologias');
+        $smarty->display('templates/calendarioDeTurnos.tpl');
+    }
 }
