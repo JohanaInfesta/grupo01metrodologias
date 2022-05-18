@@ -159,6 +159,11 @@ h1{
 }
 .btnHorario:hover{
     background-color: rgb(174, 243, 174);
+}
 
-
+#divTablaMedicos {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    text-align: center;
 }

@@ -8,13 +8,16 @@ class View{
 
     function ShowHome(){
         $smarty = new Smarty();
-        $smarty->assign('Titulo', 'Grupo 1 Metodologias');
         $smarty->display('templates/main.tpl');
     }
 
     function ShowCalendar(){
         $smarty = new Smarty();
-        $smarty->assign('Calendario', 'Grupo 1 Metodologias');
         $smarty->display('templates/calendarioDeTurnos.tpl');
+    }
+
+    function ShowMedicos(){
+        $smarty = new Smarty();
+        $smarty->display('templates/medicosDisponibles.tpl');
     }
 }
