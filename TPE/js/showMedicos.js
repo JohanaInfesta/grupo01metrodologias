@@ -43,7 +43,6 @@ function showMedicos() {
             tdObrasSoc.innerHTML += '<li>' + obraSocial + '</li>';
         });
         
-
         tr.appendChild(tdNombre);
         tr.appendChild(tdApellido);
         tr.appendChild(tdEspecialidad);
