@@ -1,3 +1,18 @@
+let filasMedicos = document.getElementsByClassName("filaMedico");
+
+for(let i = 0; i < filasMedicos.length; i++) {
+    filasMedicos[i].addEventListener("click", function() {
+        window.location.replace("calendarioDeTurnos")
+    })
+}
+
+
+   // window.location.replace("calendarioDeTurnos");
+
+
+/* 
+VIEJO METODO PARA MOSTRAR MEDICOS
+
 var medicos = [
     {"id": 1, 
     "nombre": "Roberto", 
@@ -54,3 +69,4 @@ function showMedicos() {
 
 }
 showMedicos();
+*/

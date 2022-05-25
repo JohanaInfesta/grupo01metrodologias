@@ -10,15 +10,20 @@
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Especialidad</th>
-                        <th>Obras Sociales Admitidas</th>
                     </tr>
                 </thead>
                 <tbody id="filasMedicos">
-                   	
+                    {foreach from=$medicos item=$medico}
+                        <tr class="filaMedico">
+                            <td>{$medico->nombre}</td>
+                            <td>{$medico->apellido}</td>
+                            <td>{$medico->especialidad}</td>
+                        </tr>
+                    {/foreach}
                 </tbody>
             </table>
         </div>
     </div>
 </article>
-<script src="js/showMedicos.js"></script>
+<script src="js/(OBSOLETE)showMedicos.js"></script>
 {include file="footer.tpl"}
