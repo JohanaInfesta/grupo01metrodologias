@@ -5,7 +5,7 @@ class medicosModel {
     private $dataBase;
 
     public function __construct() {
-        $this->dataBase = new PDO('mysql:host=localhost;dbname=centromedico', 'root', '');
+        $this->dataBase = new PDO('mysql:host=localhost;dbname=centro_medico', 'root', '');
     }
 
     public function getMedicos() {
