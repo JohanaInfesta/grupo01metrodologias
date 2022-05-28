@@ -21,5 +21,21 @@ class medicosModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getEspecialidades() {
+        $query = $this->dataBase->prepare("
+            SELECT DISTINCT especialidad
+            FROM medico
+        ");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
 
+    public function getObraSociales() {
+        $query = $this->dataBase->prepare("
+            SELECT *
+            FROM obra_social
+        ");
+        $query->execute();                 
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
 }

@@ -39,6 +39,7 @@ $r = new Router();
 $r->setDefaultRoute("controller", "Home");
 $r->addRoute("calendarioDeTurnos", "GET", "controller", "Calendario");
 $r->addroute("medicosDisponibles", "GET", "controller", "Medicos");
+$r->addRoute("filtrosBusqueda", "GET", "controller", "FiltrosBusqueda");
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
