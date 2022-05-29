@@ -38,4 +38,35 @@ class medicosModel {
         $query->execute();                 
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+    public function getMedicosByObraSocial($obraSocial){
+        $query = $this->dataBase->prepare("
+            SELECT nombre, apellido, especialidad
+            FROM medico_obra_social
+            JOIN medico ON medico_obra_social.id_medico = medico.id_medico
+            WHERE id_obra_social = :obraSocial
+        ");
+        $query->execute(array(':obraSocial' => $obraSocial));                 
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getMedicosByEspecialidad($especialidad){
+        $query = $this->dataBase->prepare("
+            SELECT nombre, apellido, especialidad
+            FROM medico
+            WHERE especialidad = :especialidad
+        ");
+        $query->execute(array(':especialidad' => $especialidad));
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function getMedicosByObraSocialAndEspecialidad($obraSocial, $especialidad){
+        $query = $this->dataBase->prepare("
+            SELECT nombre, apellido, especialidad
+            FROM medico_obra_social
+            JOIN medico ON medico_obra_social.id_medico = medico.id_medico
+            WHERE id_obra_social = :obraSocial
+            AND especialidad = :especialidad
+        ");
+        $query->execute(array(':obraSocial' => $obraSocial, ':especialidad' => $especialidad));
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+    
 }

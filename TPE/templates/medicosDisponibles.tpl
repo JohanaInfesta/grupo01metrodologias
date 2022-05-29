@@ -1,17 +1,17 @@
 {include file="header.tpl"}
 
 <div class="formBusqueda">
-    <form action="" method="post" name="form_busqueda" id="form_busqueda">
+    <form action="filtrosBusqueda" method="post" name="form_busqueda" id="form_busqueda">
         <label for="especialidad">Seleccione especialidad: </label>
-        <select class="especialidad">
+        <select class="especialidad" name="especialidad" >
         <option value="-1" >-------------</option>
         {foreach from=$especialidades item=$especialidad}
-            <option value="">{$especialidad->especialidad}</option>
+            <option value="{$especialidad->especialidad}">{$especialidad->especialidad}</option>
         {/foreach}
         </select>
 
         <label for="obrSoc">Seleccione Obra Social: </label>
-        <select class="obrSoc">
+        <select class="obrSoc" name="obraSocial" >
         <option value="-1" >-------------</option>
         {foreach from=$obraSociales item=$obraSocial}
             <option value="{$obraSocial->id_obra_social}">{$obraSocial->nombre}</option>
