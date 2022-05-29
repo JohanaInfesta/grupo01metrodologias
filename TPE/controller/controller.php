@@ -21,7 +21,9 @@ class controller{
     }
 
     function Medicos() {
+        $queryObraSociales = $this->medicosModel->getObraSociales();
+        $queryEspecialidades = $this->medicosModel->getEspecialidades();
         $queryMedicos = $this->medicosModel->getMedicos();
-        $this->view->ShowMedicos($queryMedicos);
+        $this->view->ShowMedicos($queryMedicos,$queryObraSociales, $queryEspecialidades);
     }
 }

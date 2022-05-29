@@ -16,9 +16,11 @@ class View{
         $smarty->display('templates/calendarioDeTurnos.tpl');
     }
 
-    function ShowMedicos($medicos){
+    function ShowMedicos($medicos,$obraSociales, $especialidades){
         $smarty = new Smarty();
         $smarty->assign('medicos', $medicos);
+        $smarty->assign('obraSociales', $obraSociales);
+        $smarty->assign('especialidades', $especialidades);
         $smarty->display('templates/medicosDisponibles.tpl');
     }
 }

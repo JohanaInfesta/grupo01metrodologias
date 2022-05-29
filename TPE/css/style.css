@@ -171,3 +171,17 @@ h1{
 .filaMedico {
     cursor: pointer;
 }
+
+.formBusqueda{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.boton{
+    width: 5%;
+    margin:0.5%
+}
+.href{
+    text-decoration: none;
+    color: black;
+}
