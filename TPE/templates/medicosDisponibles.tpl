@@ -1,6 +1,18 @@
 {include file="header.tpl"}
 
+
+
+
+
+
 <div class="formBusqueda">
+
+    <div id="filtroMedico">
+        <label for="">ingrese el medico que desea buscar</label>
+        <input type="text" id="buscarMedico">
+
+    </div>
+
     <form action="filtrosBusqueda" method="post" name="form_busqueda" id="form_busqueda">
         <label for="especialidad">Seleccione especialidad: </label>
         <select class="especialidad" name="especialidad" >
@@ -24,7 +36,7 @@
     <div class="calendar">
         <h1>Medicos disponibles</h1>
         <div id="divTablaMedicos">
-            <table class="table table-primary table-hover tablaMedicos">
+            <table class="table table-primary table-hover tablaMedicos " id="idTabla">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -35,7 +47,7 @@
                 <tbody id="filasMedicos">
                     {foreach from=$medicos item=$medico}
                         <tr class="filaMedico">
-                            <td>{$medico->nombre}</td>
+                            <td id="idNombre" value="{$medico->nombre}">{$medico->nombre}</td>
                             <td>{$medico->apellido}</td>
                             <td>{$medico->especialidad}</td>
                         </tr>
@@ -46,5 +58,9 @@
     </div>
 </article>
 
+
 <script src="js/(OBSOLETE)showMedicos.js"></script>
+<script src="js/buscarMedicos.js"></script>
+
+
 {include file="footer.tpl"}
