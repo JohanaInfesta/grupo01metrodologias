@@ -12,11 +12,9 @@ var horarios = {
     'Viernes': ['8', '8:30','9','10:30','11','11:30'],
     'Sabado': [],
 }
-
-
 writeCalendar();
 
-
+//Dibuja el calendario en el template
 function writeCalendar(){
     let dates = document.getElementById('dates');
     for (let i = 1; i <= getTotalDayOfMonth(); i++) {
@@ -43,6 +41,7 @@ function closeModal(){
     divHorarios.classList.remove('horarios');
     divOpacity.classList.remove('opacity');
 } 
+//Setea los horarios dependiendo el dia
 function setValueHours(n){
     let horario = daySelect(n);
     modal.classList.remove('dsplNone');
@@ -52,6 +51,8 @@ function setValueHours(n){
     divHorarios.classList.add('horarios');
     divOpacity.classList.add('opacity');
 }
+
+//Retorna los horarios dependiendo nombre del dia de la semana
 function daySelect(n){
     let aux = getNameByDay(n);
     switch (aux) {
