@@ -8,7 +8,7 @@ class View{
 
     function ShowHome(){
         $smarty = new Smarty();
-        $smarty->display('templates/main.tpl');
+        $smarty->display('templates/home.tpl');
     }
 
     function ShowCalendar(){

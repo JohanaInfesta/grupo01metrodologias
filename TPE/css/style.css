@@ -19,11 +19,7 @@
 .footer_light{
     background-color: #C2E6FF !important;
 }
-.pb-4{
-    position: fixed;
-    top: 78%;
-    width: 100%;
-}
+
 
 .banner{
     width: 100%;
@@ -42,6 +38,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding: 20px;
+}
+
+.mainFotter{
+    
+    bottom: 0;
+    width: 100%;
+   
 }
 
 .img_main{
