@@ -1,7 +1,7 @@
    
 {include file="header.tpl"}
 
-
+<div>
     <div class="banner">
         <img class="banner_img" src="img/banner.jpg" alt="banner" >
     </div>
@@ -27,6 +27,7 @@
             </ul>
         </div>
     </div>
+</div>
 
 
 {include file="footer.tpl"}
