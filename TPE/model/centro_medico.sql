@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2022 a las 00:52:27
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.4.7
+-- Servidor: localhost:3305
+-- Tiempo de generación: 23-06-2022 a las 01:58:40
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -114,6 +114,37 @@ INSERT INTO `obra_social` (`id_obra_social`, `nombre`) VALUES
 (10, 'Mediterranea'),
 (11, 'PAMI');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `paciente`
+--
+
+CREATE TABLE `paciente` (
+  `dni` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `mail` varchar(30) NOT NULL,
+  `id_obra_social` int(11) NOT NULL,
+  `n_afiliado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `turno`
+--
+
+CREATE TABLE `turno` (
+  `id` int(11) NOT NULL,
+  `id_paciente` int(11) NOT NULL,
+  `dia` varchar(30) NOT NULL,
+  `horario` varchar(30) NOT NULL,
+  `id_medico` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -139,6 +170,21 @@ ALTER TABLE `obra_social`
   ADD PRIMARY KEY (`id_obra_social`);
 
 --
+-- Indices de la tabla `paciente`
+--
+ALTER TABLE `paciente`
+  ADD PRIMARY KEY (`dni`),
+  ADD KEY `id_obra_social` (`id_obra_social`);
+
+--
+-- Indices de la tabla `turno`
+--
+ALTER TABLE `turno`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_medico` (`id_medico`),
+  ADD KEY `id_paciente` (`id_paciente`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -155,6 +201,12 @@ ALTER TABLE `obra_social`
   MODIFY `id_obra_social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `turno`
+--
+ALTER TABLE `turno`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -164,6 +216,19 @@ ALTER TABLE `obra_social`
 ALTER TABLE `medico_obra_social`
   ADD CONSTRAINT `pk_medico_medico_obra_social` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`id_medico`),
   ADD CONSTRAINT `pk_obra_social_medico_obra_social` FOREIGN KEY (`id_obra_social`) REFERENCES `obra_social` (`id_obra_social`);
+
+--
+-- Filtros para la tabla `paciente`
+--
+ALTER TABLE `paciente`
+  ADD CONSTRAINT `paciente_ibfk_1` FOREIGN KEY (`id_obra_social`) REFERENCES `obra_social` (`id_obra_social`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paciente_ibfk_2` FOREIGN KEY (`dni`) REFERENCES `turno` (`id_paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `turno`
+--
+ALTER TABLE `turno`
+  ADD CONSTRAINT `turno_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`id_medico`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
