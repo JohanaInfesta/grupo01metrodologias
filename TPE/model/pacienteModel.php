@@ -9,7 +9,7 @@ class pacienteModel {
     */
 
     public function __construct() {
-        $this->dataBase = new PDO('mysql:host=localhost;dbname=centro_medico', 'root', 'kevin41123767');
+        $this->dataBase = new PDO('mysql:host=localhost;dbname=centro_medico', 'root', '');
     }
 
     //Funcion que obtiene un paciente especifico por DNI de la base de datos
