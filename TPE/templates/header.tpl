@@ -28,6 +28,9 @@
                         <li class="nav-item">
                         <a class="nav-link" href="medicosDisponibles">Turnos</a>
                         </li>
+                         <li class="nav-item">
+                        <a class="nav-link" href="asignarTurno">Asignar Turnos</a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -7,7 +7,7 @@
         } 
         public function deleteTurno($id){ 
             $query = $this->dataBase->prepare("DELETE FROM turno WHERE turno.id = ?"); 
-            $query->execute(array($id)) 
+            $query->execute(array($id));
         
         }
     }

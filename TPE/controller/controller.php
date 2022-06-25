@@ -1,15 +1,18 @@
 <?php
 require_once  'view/View.php';
 require_once  'model/medicosModel.php';
+require_once  'model/pacienteModel.php';
 
 class controller{
 
     protected $view;
     protected $medicosModel;
+    protected $pacientesModel;
 
     function __construct(){
         $this->view = new View();
         $this->medicosModel = new medicosModel();
+        $this->pacientesModel = new pacienteModel();
     }
 
     function Home(){
@@ -44,5 +47,22 @@ class controller{
         $queryObraSociales = $this->medicosModel->getObraSociales();
         $queryEspecialidades = $this->medicosModel->getEspecialidades();
         $this->view->ShowMedicos($queryMedicos,$queryObraSociales, $queryEspecialidades);
+    }
+
+
+    function asignarTurno(){
+        $infoPaciente = "";
+        $this->view->showAsignacionTurnos($infoPaciente);
+    }
+    function pacienteBusqueda(){
+        $dni = $_POST["buscarPaciente"];
+
+        $infoPaciente = $this->pacientesModel->getPacienteById($dni);
+
+        if($infoPaciente == null){
+            $infoPaciente = "No se encuentra registrado";
+        }
+
+        $this->view->showAsignacionTurnos($infoPaciente);
     }
 }
