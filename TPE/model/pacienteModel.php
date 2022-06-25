@@ -14,7 +14,9 @@ class pacienteModel {
 
     //Funcion que obtiene un paciente especifico por DNI de la base de datos
     function getPacienteById($id){
-        $query = $this->dataBase->prepare("SELECT * FROM paciente WHERE paciente.dni = ?");
+       $query = $this->dataBase->prepare("SELECT * FROM paciente  WHERE paciente.dni = ?");
         $query->execute(array($id));
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+}

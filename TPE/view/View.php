@@ -23,4 +23,10 @@ class View{
         $smarty->assign('especialidades', $especialidades);
         $smarty->display('templates/medicosDisponibles.tpl');
     }
+
+    function showAsignacionTurnos($infoPaciente){
+        $smarty = new Smarty();
+        $smarty->assign('paciente', $infoPaciente);
+        $smarty->display('templates/asignarTurno.tpl');
+    }
 }
