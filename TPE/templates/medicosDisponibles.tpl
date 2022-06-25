@@ -1,9 +1,4 @@
 {include file="header.tpl"}
-
-
-
-
-
 <div>
     <div class="formBusqueda">
 
