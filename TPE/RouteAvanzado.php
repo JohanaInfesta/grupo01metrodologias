@@ -42,6 +42,7 @@ $r->addroute("medicosDisponibles", "GET", "controller", "Medicos");
 $r->addRoute("filtrosBusqueda", "POST", "controller", "filtrarBusqueda");
 $r->addroute("asignarTurno", "GET", "controller", "asignarTurno");
 $r->addRoute("pacienteBusqueda", "POST", "controller", "pacienteBusqueda");
+$r->addRoute("turnoAsignado", "POST", "controller", "cargarTurno");
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);

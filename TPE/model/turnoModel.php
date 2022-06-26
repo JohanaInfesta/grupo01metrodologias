@@ -8,6 +8,11 @@
         public function deleteTurno($id){ 
             $query = $this->dataBase->prepare("DELETE FROM turno WHERE turno.id = ?"); 
             $query->execute(array($id));
-        
+        }
+
+        public function addTurno ($dni, $dia, $hora, $medico) {
+            $query = $this->dataBase->prepare("INSERT INTO turno (dni_paciente, dia, horario, id_medico)
+                                                VALUES (?,?,?,?)");
+            $query->execute(array($dni, $dia, $hora, $medico));
         }
     }
