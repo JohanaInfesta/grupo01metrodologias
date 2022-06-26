@@ -81,7 +81,8 @@ class controller{
         $fecha = $_POST["fecha"];
         $hora = $_POST["hora"];
         $id_medico = $_POST["medico"];
-        $actualDate = date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+        $actualDate = date("y-m-d");
 
         $infoPaciente = "";
         $medicosCompatibles = "";
