@@ -2,17 +2,20 @@
 require_once  'view/View.php';
 require_once  'model/medicosModel.php';
 require_once  'model/pacienteModel.php';
+require_once  'model/turnoModel.php';
 
 class controller{
 
     protected $view;
     protected $medicosModel;
     protected $pacientesModel;
+    protected $turnosModel;
 
     function __construct(){
         $this->view = new View();
         $this->medicosModel = new medicosModel();
         $this->pacientesModel = new pacienteModel();
+        $this->turnosModel = new turnoModel();
     }
 
     function Home(){
@@ -49,20 +52,54 @@ class controller{
         $this->view->ShowMedicos($queryMedicos,$queryObraSociales, $queryEspecialidades);
     }
 
-
     function asignarTurno(){
         $infoPaciente = "";
-        $this->view->showAsignacionTurnos($infoPaciente);
+        $medicosCompatibles = "";
+        $message = "";
+        $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
     }
+
     function pacienteBusqueda(){
         $dni = $_POST["buscarPaciente"];
+        $message = "";
 
         $infoPaciente = $this->pacientesModel->getPacienteById($dni);
 
         if($infoPaciente == null){
-            $infoPaciente = "No se encuentra registrado";
+            $infoPaciente = "No se encuentra registrado el paciente...";
+            $medicosCompatibles = "";
+            $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
         }
+        else {
+            $medicosCompatibles = $this->medicosModel->getMedicosByObraSocial($infoPaciente->id_obra_social);
+            $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
+        }
+    }
 
-        $this->view->showAsignacionTurnos($infoPaciente);
+    function cargarTurno() {
+        $dniPaciente = $_POST["dniPaciente"];
+        $fecha = $_POST["fecha"];
+        $hora = $_POST["hora"];
+        $id_medico = $_POST["medico"];
+
+        $actualDate = date("y-m-d");
+
+        $infoPaciente = "";
+        $medicosCompatibles = "";
+        if (($dniPaciente != "") && ($fecha != "") && ($hora != "") && $id_medico != -1) {
+            if ($fecha >= $actualDate) {
+                $this->turnosModel->addTurno($dniPaciente, $fecha, $hora, $id_medico);
+                $message = "Se Ha Agregado El Turno Con Exito";
+                $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
+            }
+            else {
+                $message = "La Fecha del Turno ya no Está Disponible";
+                $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
+            }
+        }
+        else {
+            $message = "Faltan Completar Campos";
+            $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
+        }
     }
 }

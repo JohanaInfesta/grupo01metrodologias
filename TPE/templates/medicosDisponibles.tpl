@@ -21,7 +21,7 @@
             <select class="obrSoc" name="obraSocial" >
             <option value="-1" >-------------</option>
             {foreach from=$obraSociales item=$obraSocial}
-                <option value="{$obraSocial->id_obra_social}">{$obraSocial->nombre}</option>
+                <option value="{$obraSocial->id_obra_social}">{$obraSocial->nombre_obra_social}</option>
             {/foreach}
             </select>
             <button type="submit" class="btn btn-primary">Buscar</button>
