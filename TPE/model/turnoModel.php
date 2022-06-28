@@ -15,4 +15,25 @@
                                                 VALUES (?,?,?,?)");
             $query->execute(array($dni, $dia, $hora, $medico));
         }
+
+        public function getTurnoByMedico($id_medico){
+            $query = $this->dataBase->prepare("
+            SELECT *
+            FROM turno
+            JOIN paciente ON turno.dni_paciente = paciente.dni
+            WHERE id_medico = ?
+            ");
+            $query->execute(array($id_medico));                 
+        return $query->fetchAll(PDO::FETCH_OBJ);
+        }
+        
+        public function getTurnos(){
+            $query = $this->dataBase->prepare("
+            SELECT *
+            FROM turno
+            JOIN paciente ON turno.dni_paciente = paciente.dni
+            ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
     }

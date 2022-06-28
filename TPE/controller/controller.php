@@ -102,4 +102,20 @@ class controller{
             $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
         }
     }
+
+    function Turnos(){
+        $queryTurnos = $this->turnosModel->getTurnos();
+        $queryMedicos = $this->medicosModel->getMedicos();
+        $this->view->showTurnos($queryMedicos, $queryTurnos);
+    }
+
+    function filtrarTurnos(){
+        $id_medico = $_POST["id_medico"];
+        if($id_medico != '-1'){
+            $queryTurnos = $this->turnosModel->getTurnoByMedico($id_medico);
+        }
+        $queryMedicos = $this->medicosModel->getMedicos();
+        $queryTurnos = $this->turnosModel->getTurnoByMedico($id_medico);
+        $this->view->showTurnos($queryMedicos, $queryTurnos);
+    }
 }

@@ -31,4 +31,10 @@ class View{
         $smarty->assign('medicos', $medicosCompatibles);
         $smarty->display('templates/asignarTurno.tpl');
     }
+    function showTurnos($medicos, $turnos){
+        $smarty = new Smarty();
+        $smarty->assign('medicos', $medicos);
+        $smarty->assign('turnos', $turnos);
+        $smarty->display('templates/listarTurnos.tpl');
+    }
 }
