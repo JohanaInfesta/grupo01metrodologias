@@ -14,7 +14,7 @@ class medicosModel {
 
     public function getMedicos() {
         $query = $this->dataBase->prepare("
-            SELECT nombre, apellido, especialidad
+            SELECT *
             FROM medico   
         ");
         $query->execute();
@@ -40,10 +40,10 @@ class medicosModel {
     }
     public function getMedicosByObraSocial($obraSocial){
         $query = $this->dataBase->prepare("
-            SELECT nombre, apellido, especialidad
-            FROM medico_obra_social
-            JOIN medico ON medico_obra_social.id_medico = medico.id_medico
-            WHERE id_obra_social = :obraSocial
+            SELECT me.id_medico, me.nombre, me.apellido, me.especialidad
+            FROM medico_obra_social as mo
+            JOIN medico as me ON mo.id_medico = me.id_medico
+            WHERE mo.id_obra_social = :obraSocial
         ");
         $query->execute(array(':obraSocial' => $obraSocial));                 
         return $query->fetchAll(PDO::FETCH_OBJ);

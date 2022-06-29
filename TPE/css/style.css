@@ -207,6 +207,43 @@
     color: black;
 }
 
+#formAsignarTurno {
+    margin: 40px;
+}
+#formAsignarTurno p {
+    text-align: center;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#content div {
+    width: 500px;
+}
+
+#BusquedaPaciente {
+    flex-direction: column;
+}
+
+#datosPaciente {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#formTurno {
+    display: flex;
+    flex-direction: column;
+}
+#formTurno input, #formTurno button, #formTurno select {
+    margin: 10px;
+    width: 250px;
+    align-self: center;
+}
 
 
 
