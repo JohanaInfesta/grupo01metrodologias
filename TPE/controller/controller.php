@@ -82,8 +82,6 @@ class controller{
         $hora = $_POST["hora"];
         $id_medico = $_POST["medico"];
 
-        $actualDate = date("y-m-d");
-
         $infoPaciente = "";
         $medicosCompatibles = "";
         if (($dniPaciente != "") && ($fecha != "") && ($hora != "") && $id_medico != -1) {
