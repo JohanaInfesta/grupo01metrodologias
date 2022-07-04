@@ -24,17 +24,21 @@
             </div>
             <div class="flexCenter">
                 <form action="confirmarTurno" method="post" id="form-confirm" class="formTurno">
-                    <h4>Confirmar turno</h4>
-                       <div id="datosPaciente"> 
+                    <div id="datosPaciente"> 
                         {if $paciente neq "No se encuentra registrado el paciente..." && $paciente neq ""}
                             <p><strong>Nombre: </strong>{$paciente->nombre}, {$paciente->apellido}</p>
-                            <p class="d-none" name="dniPaciente">{$paciente->dni}</p>
                         {else}
                             {$paciente}
                         {/if}
                     </div>
                     <div>
-                        Aca se mostraria el medico previamente seleccionado
+                        <label for="buscarMedico"><strong>Medico seleccionado:</strong></label>
+                        <input type="text" name="buscarMedico" id="buscarMedico" value="1" placeholder="Guillermo Valerio" disabled>
+                        {if $paciente neq "No se encuentra registrado el paciente..." && $paciente neq ""}
+                            <input type="hidden" name="idPaciente" id="idPaciente" value={$paciente->dni}>
+                        {else}
+                            <input type="hidden" name="idPaciente" id="idPaciente" value="">
+                        {/if}
                     </div>
                     <p name="Horario" id="horarioHTML"></p>
                     <p name="Fecha" id="fechaHTML"></p>
