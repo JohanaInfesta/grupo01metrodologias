@@ -65,6 +65,14 @@ class controller{
     }
     */
 
+    function borrarTurno($params = null) {
+        $id = $params[':ID'];
+        $this->turnosModel->deleteTurno($id);
+
+        header('Location: ../listarTurnos');
+        die();
+    }
+
     function pacienteBusqueda(){
         $dni = $_POST["buscarPaciente"];
         $message = "";

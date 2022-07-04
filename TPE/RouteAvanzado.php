@@ -44,6 +44,8 @@ $r->addroute("asignarTurno", "GET", "controller", "asignarTurno");
 $r->addRoute("pacienteBusqueda", "POST", "controller", "pacienteBusqueda");
 $r->addRoute("confirmarTurno", "POST", "controller", "cargarTurno");
 
+$r->addRoute("deleteTurno/:ID", "GET", "controller", "borrarTurno");
+
 
 $r->addRoute("listarTurnos", "GET", "controller", "Turnos");
 $r->addRoute("filtrosMedico", "POST", "controller", "filtrarTurnos");
