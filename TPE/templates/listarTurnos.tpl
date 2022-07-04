@@ -21,6 +21,7 @@
                             <th>Nombre</th>
                             <th>dia</th>
                             <th>Horario</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id=" ">
