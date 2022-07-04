@@ -59,6 +59,20 @@ class controller{
         $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
     }
 
+    /*
+    function cargarTurno() {
+        if
+    }
+    */
+
+    function borrarTurno($params = null) {
+        $id = $params[':ID'];
+        $this->turnosModel->deleteTurno($id);
+
+        header('Location: ../listarTurnos');
+        die();
+    }
+
     function pacienteBusqueda(){
         $dni = $_POST["buscarPaciente"];
         $message = "";
@@ -76,30 +90,19 @@ class controller{
         }
     }
 
-    function cargarTurno() {
-        $dniPaciente = $_POST["dniPaciente"];
-        $fecha = $_POST["fecha"];
-        $hora = $_POST["hora"];
-        $id_medico = $_POST["medico"];
+    function Turnos(){
+        $queryTurnos = $this->turnosModel->getTurnos();
+        $queryMedicos = $this->medicosModel->getMedicos();
+        $this->view->showTurnos($queryMedicos, $queryTurnos);
+    }
 
-        $actualDate = date("y-m-d");
-
-        $infoPaciente = "";
-        $medicosCompatibles = "";
-        if (($dniPaciente != "") && ($fecha != "") && ($hora != "") && $id_medico != -1) {
-            if ($fecha >= $actualDate) {
-                $this->turnosModel->addTurno($dniPaciente, $fecha, $hora, $id_medico);
-                $message = "Se Ha Agregado El Turno Con Exito";
-                $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
-            }
-            else {
-                $message = "La Fecha del Turno ya no Está Disponible";
-                $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
-            }
+    function filtrarTurnos(){
+        $id_medico = $_POST["id_medico"];
+        if($id_medico != '-1'){
+            $queryTurnos = $this->turnosModel->getTurnoByMedico($id_medico);
         }
-        else {
-            $message = "Faltan Completar Campos";
-            $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
-        }
+        $queryMedicos = $this->medicosModel->getMedicos();
+        $queryTurnos = $this->turnosModel->getTurnoByMedico($id_medico);
+        $this->view->showTurnos($queryMedicos, $queryTurnos);
     }
 }

@@ -14,7 +14,7 @@ class medicosModel {
 
     public function getMedicos() {
         $query = $this->dataBase->prepare("
-            SELECT nombre, apellido, especialidad
+            SELECT *
             FROM medico   
         ");
         $query->execute();

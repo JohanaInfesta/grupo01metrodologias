@@ -1,30 +1,58 @@
 {include file="header.tpl"}
-<div>
-    <div class="" id="divOpacity">
-    </div>
-    <div class="calendar">
-        <h1>Calendario</h1>
-            <div class="week">
-                <h3>Domingo</h3>
-                <h3>Lunes</h3>
-                <h3>Martes</h3>
-                <h3>Miercoles</h3>
-                <h3>Jueves</h3>
-                <h3>Viernes</h3>
-                <h3>Sabado</h3>
-            </div>
-            <div id="dates" class="dates">
-            </div>
-        </div>
+<section>
+    <div class="divCalendar">
+        <table id="calendar">
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>Lun</th><th>Mar</th><th>Mie</th><th>Jue</th><th>Vie</th><th>Sab</th><th>Dom</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
         <div class="dsplNone modalHorarios"  id="modal"> 
             <h3>Horarios disponibles</h3>
             <div class=" " id="horarios">
             </div>
-            <div class="btnSalir">
+            <div class="container busquedaPaciente">
+                <form action="pacienteBusqueda" method="post" name="buscarPaciente" id="form_busqueda">
+                    <label for="buscarPaciente"><strong>Ingrese DNI del paciente</strong></label>
+                    <input type="number" name="buscarPaciente" id="buscarPaciente">
+                    <button id="busqueda_paciente" type="submit" class="btnBuscar">Buscar</button>
+                </form>
+            </div>
+            <div class="flexCenter">
+                <form action="confirmarTurno" method="post" id="form-confirm" class="formTurno">
+                    <div id="datosPaciente"> 
+                        {if $paciente neq "No se encuentra registrado el paciente..." && $paciente neq ""}
+                            <p><strong>Nombre: </strong>{$paciente->nombre}, {$paciente->apellido}</p>
+                        {else}
+                            {$paciente}
+                        {/if}
+                    </div>
+                    <div>
+                        <label for="buscarMedico"><strong>Medico seleccionado:</strong></label>
+                        <input type="text" name="buscarMedico" id="buscarMedico" value="Guillermo Valerio" disabled>
+                        {if $paciente neq "No se encuentra registrado el paciente..." && $paciente neq ""}
+                            <input type="hidden" name="idPaciente" id="idPaciente" value={$paciente->dni}>
+                        {else}
+                            <input type="hidden" name="idPaciente" id="idPaciente" value="">
+                        {/if}
+                    </div>
+                    <p name="Horario" id="horarioHTML"></p>
+                    <p name="Fecha" id="fechaHTML"></p>
+                    <div class="flexCenter">
+                        <button class="btnConfirmar" type="submit">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="flexCenter btnSalir">
                 <button id="closeModal">Salir</button>
             </div>
         </div>
     </div>
     <script src="js/index.js"></script>
-</div>
+</section>
 {include file="footer.tpl"}

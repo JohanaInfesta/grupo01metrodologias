@@ -53,64 +53,73 @@
     height: 170px;
 }
 
+#deleteTurno{
+    border: 1px solid #2e518b; 
+    padding: 10px;
+    background-color: #2e518b; 
+    color: #ffffff; 
+    text-decoration: none;
+    text-transform: uppercase; 
+    font-family: 'Helvetica', sans-serif; 
+    border-radius: 15px; 
+}
 
-.calendar{
-    padding-top: 3%;
-}
-.week{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2%;
-  }
-  .dates{
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      margin-top: 2%;
-  }
 
-.btnDay{
-    width: 100%;
-    background-color: #ffffff;
-    height: 50px;
-    border: 0.5px solid rgb(155, 153, 153);
+
+
+
+
+#calendar {
+    font-family:Arial;
+    font-size:12px;
+    width: 80vw;
+    height: 50vh;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
-.btnDisabled{
-    width: 100%;
-    opacity: 45%;
-    height: 50px;
+#calendar caption {
+    text-align:left;
+    padding:5px 10px;
+    background-color:#003366;
+    color:#fff;
+    font-weight:bold;
+    font-size:medium;
+    border-radius: 6px;
 }
-.not-allowed{
-    cursor: not-allowed !important;
-}
-.btnDay:hover{
-    background-color: #869EDD;
-}
-h1{
+#calendar caption div:nth-child(1) {float:left;}
+#calendar caption div:nth-child(2) {float:right;}
+#calendar caption div:nth-child(2) a {cursor:pointer;}
+#calendar th {
+    background-color:#006699;
+    color:#fff;
+    height: 40px;
+    border-radius: 6px;
     text-align: center;
 }
+#calendar td {
+    text-align:right;
+    padding:2px 5px;
+    transition: 0.3s;
+    border-radius: 6px;
+}
+#calendar .hoy {
+    background-color:#006699;
 
+}
+#calendar .diaNoLaboral{
+    background-color:red;
+}
+#calendar button{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
 
-
-
-
-.div-button{
+.divCalendar{
     display: flex;
+    justify-content: center;
 }
-
-#turnoOcupado{
-    height: 20px;
-    width: 20px;
-    background: red;
-    border-radius: 50%;
-}
-
-#turnoDisponible{
-    height: 20px;
-    width: 20px;
-    background: green;
-    border-radius: 50%;
-}
-
 .dsplNone{
     display: none;
 }
@@ -127,8 +136,8 @@ h1{
     margin: auto;
     bottom: 90px;
     top: 0;
-    width: 350px;
-    height: 450px;
+    width: 550px;
+    height: 650px;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -136,27 +145,57 @@ h1{
     text-align: center;
     padding: 15px;
 }
-.btnSalir{
+.flexCenter{
     display: flex;
     justify-content: center;
 }
 .btnSalir button{
-    background-color: #869EDD;
+    background-color: #cd0606af;
     border-radius: 5px;
+    border: none;
+    width: 90px;
+}
+.btnConfirmar{
+    background-color: #066dcdcc;
+    border-radius: 5px;
+    border: none;
+    width: 90px;
+}
+.btnBuscar{
+    background-color: #066dcdcc;
+    border-radius: 5px;
+    border: none;
     width: 90px;
 }
 
-.opacity{
-    position: absolute;
-    width: 100%;
-    height: 70%;
-    background-color: black;
-    opacity: 40%;
+.formTurno{
+    margin-bottom: 45px;
 }
 
+.domingo{
+    background-color: silver;
+    border-radius: 6px;
+}
+.domingo button{
+    cursor: no-drop;
+}
+.laboral{
+    background-color:rgb(245, 241, 241);
+    border-radius: 6px;
+}
+.laboral button{
+    cursor: pointer;
+}
+.laboral:hover{
+        background-color: #006699;
+}
+.hoy button {
+    cursor: pointer;
+    border-radius: 6px;
+}
 .btnHorario{
     width: 120px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border-radius: 5px;
     background-color: #ffffff;
     border: 0.5px solid rgba(0, 0, 0, 0.356);
@@ -229,5 +268,8 @@ h1{
     align-self: center;
 }
 
+.busquedaPaciente{
+    display: flex;
 
+}
 
