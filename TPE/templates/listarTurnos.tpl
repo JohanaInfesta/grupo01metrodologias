@@ -21,6 +21,7 @@
                             <th>Nombre</th>
                             <th>dia</th>
                             <th>Horario</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id=" ">
@@ -29,6 +30,7 @@
                                 <td id="idNombre" value="">{$turno->nombre} {$turno->apellido}</td>
                                 <td>{$turno->dia}</td>
                                 <td>{$turno->horario}</td>
+                                 <td><a href=" deleteTurno/{$turno->id}" id="deleteTurno">Borrar</a>
                             </tr>
                         {/foreach}
                     </tbody>
