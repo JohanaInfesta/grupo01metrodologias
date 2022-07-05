@@ -74,7 +74,6 @@ class controller{
             $this->turnosModel->addTurno($idPaciente, $fecha, $hora, $idMedico);
             header('Location: listarTurnos');
     }
-    
 
     function borrarTurno($params = null) {
         $id = $params[':ID'];
@@ -102,7 +101,6 @@ class controller{
     }
 
     function Turnos(){
-        //INSERT INTO `turno` (`id`, `dni_paciente`, `dia`, `horario`, `id_medico`) VALUES ('1', '41741866', '07/03/2004', '18:56', '1');
         $queryTurnos = $this->turnosModel->getTurnos();
         $queryMedicos = $this->medicosModel->getMedicos();
         $this->view->showTurnos($queryMedicos, $queryTurnos);
