@@ -68,5 +68,15 @@ class medicosModel {
         $query->execute(array(':obraSocial' => $obraSocial, ':especialidad' => $especialidad));
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function getIdMedicoByNombre ($nombre, $apellido) {
+        $query = $this->dataBase->prepare("
+            SELECT id_medico
+            FROM medico
+            WHERE nombre = ? AND apellido = ?;
+        ");
+        $query->execute(array($nombre, $apellido));
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
     
 }

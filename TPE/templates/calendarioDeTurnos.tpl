@@ -27,18 +27,14 @@
                     <div id="datosPaciente"> 
                         {if $paciente neq "No se encuentra registrado el paciente..." && $paciente neq ""}
                             <p><strong>Nombre: </strong>{$paciente->nombre}, {$paciente->apellido}</p>
+                            <input type="hidden" name="idPaciente" value={$paciente->dni}>
                         {else}
                             {$paciente}
-                        {/if}
-                    </div>
-                    <div>
-                        <label for="buscarMedico"><strong>Medico seleccionado:</strong></label>
-                        <input type="text" name="buscarMedico" id="buscarMedico" value="Guillermo Valerio" disabled>
-                        {if $paciente neq "No se encuentra registrado el paciente..." && $paciente neq ""}
-                            <input type="hidden" name="idPaciente" id="idPaciente" value={$paciente->dni}>
-                        {else}
                             <input type="hidden" name="idPaciente" id="idPaciente" value="">
                         {/if}
+                        <label for="buscarMedico"><strong>Medico seleccionado:</strong></label>
+                        <input type="text" name="" value="Guillermo Valerio" disabled>
+                        <input type="hidden" name="medico" value="Guillermo Valerio">
                     </div>
                     <p name="Horario" id="horarioHTML"></p>
                     <p name="Fecha" id="fechaHTML"></p>

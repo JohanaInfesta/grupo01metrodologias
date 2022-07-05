@@ -59,11 +59,22 @@ class controller{
         $this->view->showAsignacionTurnos($infoPaciente, $medicosCompatibles, $message);
     }
 
-    /*
     function cargarTurno() {
-        if
+            $idPaciente = $_POST["idPaciente"];
+            $medico = explode(" ", $_POST["medico"]);
+            $nombreMedico = $medico[0];
+            $apellidoMedico = $medico[1];
+            $idMedico = $this->medicosModel->getIdMedicoByNombre($nombreMedico, $apellidoMedico)->id_medico;
+            $fecha = "07/12/2022";
+            $hora = "10:00";
+            echo($idPaciente);
+            echo($nombreMedico);
+            echo($apellidoMedico);
+            echo ($idMedico);
+            $this->turnosModel->addTurno($idPaciente, $fecha, $hora, $idMedico);
+            header('Location: listarTurnos');
     }
-    */
+    
 
     function borrarTurno($params = null) {
         $id = $params[':ID'];
@@ -91,6 +102,7 @@ class controller{
     }
 
     function Turnos(){
+        //INSERT INTO `turno` (`id`, `dni_paciente`, `dia`, `horario`, `id_medico`) VALUES ('1', '41741866', '07/03/2004', '18:56', '1');
         $queryTurnos = $this->turnosModel->getTurnos();
         $queryMedicos = $this->medicosModel->getMedicos();
         $this->view->showTurnos($queryMedicos, $queryTurnos);
