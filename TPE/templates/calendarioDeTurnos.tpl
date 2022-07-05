@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="headerSecretaria.tpl"}
 <section>
     <div class="divCalendar">
         <table id="calendar">
